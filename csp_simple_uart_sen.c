@@ -38,10 +38,10 @@ int main(int argc, char *argv[])
     csp_packet_t *reply;     //* Packet for store reply from server
     pthread_t router_thread; //* For use Pthread
 
-    int ret;          //* For check error
-    int data_to_send; //* For store data to send
-
-    csp_init(); //* Start CSP
+    int ret;              //* For check error
+    int data_to_send;     //* For store data to send
+    csp_conf.version = 1; //! Set Version !!!!!!!!!!!!!!!!!!!!!
+    csp_init();           //* Start CSP
 
     ret = csp_usart_open_and_add_kiss_interface(&conf, CSP_IF_KISS_DEFAULT_NAME, CLIENT_ADDR, &iface); //* Start Uart
     //* If error to start UART will exit this code *//

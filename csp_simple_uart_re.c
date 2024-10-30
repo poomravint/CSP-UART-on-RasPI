@@ -35,8 +35,8 @@ int main(int argc, char *argv[])
     csp_socket_t sock = {0}; //* Create socket with no specific socket options, e.g. accepts CRC32, HMAC, etc. if enabled during compilation
     pthread_t router_thread; //* For use Pthread
     int ret;
-
-    csp_init(); //* Start CSP
+    csp_conf.version = 1; //! Set Version !!!!!!!!!!!!!!!!!!!!!
+    csp_init();           //* Start CSP
 
     ret = csp_usart_open_and_add_kiss_interface(&conf, CSP_IF_KISS_DEFAULT_NAME, SERVER_ADDR, &iface); //* Start Uart
     //* If error to start UART will exit this code *//
