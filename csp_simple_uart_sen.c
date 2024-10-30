@@ -43,7 +43,7 @@ int main(int argc, char *argv[])
 
     csp_init(); //* Start CSP
 
-    ret = csp_usart_open_and_add_kiss_interface(&conf, CSP_IF_KISS_DEFAULT_NAME, &iface); //* Start Uart
+    ret = csp_usart_open_and_add_kiss_interface(&conf, CSP_IF_KISS_DEFAULT_NAME, CLIENT_ADDR, &iface); //* Start Uart
     //* If error to start UART will exit this code *//
     if (ret != CSP_ERR_NONE)
     {

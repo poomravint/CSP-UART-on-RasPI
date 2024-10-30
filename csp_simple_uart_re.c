@@ -38,7 +38,7 @@ int main(int argc, char *argv[])
 
     csp_init(); //* Start CSP
 
-    ret = csp_usart_open_and_add_kiss_interface(&conf, CSP_IF_KISS_DEFAULT_NAME, &iface); //* Start Uart
+    ret = csp_usart_open_and_add_kiss_interface(&conf, CSP_IF_KISS_DEFAULT_NAME, SERVER_ADDR, &iface); //* Start Uart
     //* If error to start UART will exit this code *//
     if (ret != CSP_ERR_NONE)
     {
@@ -72,7 +72,7 @@ int main(int argc, char *argv[])
         switch (csp_conn_dport(conn)) //* Check destination port of connection
         {
         case 10: //* Destination match with server port
-
+            printf("Size  of : %d\n", sizeof(req));
             printf("Packet received on SERVER_PORT: %d\n", *(int *)req->data); //* Show received data from client
 
             break;
